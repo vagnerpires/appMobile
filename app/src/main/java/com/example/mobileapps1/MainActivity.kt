@@ -2,6 +2,8 @@ package com.example.mobileapps1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -9,16 +11,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val myTextView = findViewById<TextView>(R.id.myTextView)
-        myTextView.text = getString(R.string.some_text)
+        val welcomeText = findViewById<TextView>(R.id.welcomeText)
+        welcomeText.text = getString(R.string.hello_dorset)
 
-        val myTextView2 = findViewById<TextView>(R.id.myTextView2)
-        val newTextString2 = getString(R.string.some_text) + "123 "
-        myTextView2.text = newTextString2
-
-        val myTextView3 = findViewById<TextView>(R.id.myTextView3)
-        val newTextString3 = getString(R.string.some_text) + "123 "
-        myTextView3.text = newTextString3
+        val welcomeNameText = findViewById<TextView>(R.id.welcomeNameText)
+        val saveButton = findViewById<Button>(R.id.saveButton)
+        val nameEditText = findViewById<EditText>(R.id.nameEditText)
+        val nameText = nameEditText.text
+        saveButton.setOnClickListener {
+            val welcomeNameTextString = "Welcome, $nameText!"
+            welcomeNameText.text = welcomeNameTextString
+        }
 
     }
 }
