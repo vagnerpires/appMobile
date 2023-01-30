@@ -11,5 +11,14 @@ class MainActivity : AppCompatActivity() {
 
         val myTextView = findViewById<TextView>(R.id.myTextView)
         myTextView.text = getString(R.string.some_text)
+
+        val myTextView2 = findViewById<TextView>(R.id.myTextView2)
+        val newTextString2 = getString(R.string.some_text) + "123 "
+        myTextView2.text = newTextString2
+
+        val myTextView3 = findViewById<TextView>(R.id.myTextView3)
+        val newTextString3 = getString(R.string.some_text) + "123 "
+        myTextView3.text = newTextString3
+
     }
 }
