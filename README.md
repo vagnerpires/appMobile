@@ -14,3 +14,7 @@
 - Code Refactoring
 - Kotlin String templates
 - Create new activity and navigate to it
+
+## Week 3
+
+[App release](https://github.com/saravanabalagi/dorset_mobileApps1/releases/tag/week3)
