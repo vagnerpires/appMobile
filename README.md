@@ -17,4 +17,12 @@
 
 ## Week 3
 
+- Logs
+- Activity Lifecycle
+- Back Stack
+- Navigation, Intent Flags and LaunchMode
+- Fragments
+- Connecting a physical device
+- Build debug APK, create Github release with APK
+
 [App release](https://github.com/saravanabalagi/dorset_mobileApps1/releases/tag/week3)
