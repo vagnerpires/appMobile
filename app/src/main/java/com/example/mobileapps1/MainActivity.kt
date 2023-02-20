@@ -10,12 +10,21 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (savedInstanceState == null) {
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                add<SampleFragment>(R.id.fragment_container_view)
+            }
+        }
 
 //        val rootView = window.decorView.rootView
         val rootView = findViewById<View>(R.id.root_layout)
