@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import com.google.android.material.snackbar.Snackbar
@@ -21,8 +22,18 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
+//                val bundle = Bundle().apply {
+//                    putInt("page_number", 100)
+//                    putString("description", "Some Description")
+//                }
+                val bundle = bundleOf(
+                    "page_number" to 0,
+                    "description" to "Some long description"
+                )
                 setReorderingAllowed(true)
-                add<SampleFragment>(R.id.fragment_container_view)
+//                add(R.id.fragment_container_view, SampleFragment::class.java, bundle)
+                add<SampleFragment>(R.id.fragment_container_view, args = bundle)
+//                add<SampleFragment>(R.id.fragment_container_view)
             }
         }
 

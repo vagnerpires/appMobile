@@ -24,6 +24,12 @@
 - Fragments
 - Connecting a physical device
 - Build debug APK, create Github release with APK
-
 - [App release](https://github.com/saravanabalagi/dorset_mobileApps1/releases/tag/week3)
+
+## Week 4
+- SnackBar with Action
+- Toast
+- Minimize keyboard
+- RootViews
+- Add fragment programmatically
 - [Link to screencast](https://youtu.be/AoWdhXpOuHU)
