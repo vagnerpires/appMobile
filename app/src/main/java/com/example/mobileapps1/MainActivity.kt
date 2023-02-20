@@ -20,23 +20,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.commit {
-//                val bundle = Bundle().apply {
-//                    putInt("page_number", 100)
-//                    putString("description", "Some Description")
-//                }
-                val bundle = bundleOf(
-                    "page_number" to 0,
-                    "description" to "Some long description"
-                )
-                setReorderingAllowed(true)
-//                add(R.id.fragment_container_view, SampleFragment::class.java, bundle)
-                add<SampleFragment>(R.id.fragment_container_view, args = bundle)
-//                add<SampleFragment>(R.id.fragment_container_view)
-            }
-        }
-
 //        val rootView = window.decorView.rootView
         val rootView = findViewById<View>(R.id.root_layout)
 
@@ -59,6 +42,14 @@ class MainActivity : AppCompatActivity() {
                 sb.dismiss()
             }
             sb.show()
+
+            if (savedInstanceState == null) {
+                supportFragmentManager.commit {
+                    val bundle = bundleOf("username" to "Inside fragment: $nameText")
+                    setReorderingAllowed(true)
+                    add<SampleFragment>(R.id.fragment_container_view, args = bundle)
+                }
+            }
         }
 
         val nextPageButton = findViewById<Button>(R.id.nextPageButton)
