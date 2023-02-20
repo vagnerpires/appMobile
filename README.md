@@ -32,4 +32,6 @@
 - Minimize keyboard
 - RootViews
 - Add fragment programmatically
+- Add views programmatically
+- [App release](https://github.com/saravanabalagi/dorset_mobileApps1/releases/tag/week4)
 - [Link to screencast](https://youtu.be/AoWdhXpOuHU)
