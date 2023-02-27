@@ -2,8 +2,10 @@ package com.example.mobileapps1
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
@@ -13,6 +15,7 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
@@ -50,6 +53,20 @@ class MainActivity : AppCompatActivity() {
                     add<SampleFragment>(R.id.fragment_container_view, args = bundle)
                 }
             }
+
+            Log.i("MainAct", "Text entered $nameText")
+            if (nameText.toString() == "Hide") {
+                Log.i("MainAct", "Inside Hide if")
+                saveButton.visibility = View.GONE
+            }
+        }
+
+        val fab = findViewById<FloatingActionButton>(R.id.fab)
+        fab.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("https://github.com/saravanabalagi/dorset_mobileApps1")
+            }
+            startActivity(intent)
         }
 
         val nextPageButton = findViewById<Button>(R.id.nextPageButton)
