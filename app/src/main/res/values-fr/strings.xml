@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Mobile Apps 1</string>
-    <string name="hello_dorset">Hello Dorset</string>
-    <string name="welcome_name_text">Welcome!</string>
+    <string name="hello_dorset">Bonjour Dorset</string>
+    <string name="welcome_name_text">Bonjour!</string>
     <string name="enter_your_name_here">Enter your name</string>
     <string name="save_button">Save</string>
     <string name="next_page_button">Go to next page</string>
