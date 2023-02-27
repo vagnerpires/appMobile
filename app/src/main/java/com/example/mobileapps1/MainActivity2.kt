@@ -11,8 +11,9 @@ class MainActivity2 : AppCompatActivity(R.layout.activity_main2) {
         super.onCreate(savedInstanceState)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        val nameArray = Array(10000) { "Name $it" }
-        recyclerView.adapter = ContactAdapter(nameArray)
+        val nameArray = Array(50) { "Name $it" }
+        val phoneArray = Array(50) { "${it * 10}" }
+        recyclerView.adapter = ContactAdapter(nameArray, phoneArray)
 
 //        recyclerView.adapter = ArrayAdapter(this, R.layout.list_view_template, phoneArray)
 //        recyclerView.setOnItemClickListener { parent, view, position, id ->
