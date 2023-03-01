@@ -1,3 +1,3 @@
 package com.example.mobileapps1
 
-class Contact(val name: String, val phone: String)
+data class Contact(var name: String, var phone: String)

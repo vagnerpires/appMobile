@@ -19,6 +19,10 @@ class ContactAdapter(private val contactArray: Array<Contact>): RecyclerView.Ada
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.nameTextView.text = contactArray[position].name
         holder.phoneTextView.text = contactArray[position].phone
+        if (position == 2) {
+            contactArray[2].name = "John Doe"
+            holder.nameTextView.text = contactArray[position].name
+        }
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
