@@ -12,7 +12,8 @@ class MainActivity2 : AppCompatActivity(R.layout.activity_main2) {
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         val contactArray = Array(50) { Contact("Name $it", "${it * 10}") }
-        recyclerView.adapter = ContactAdapter(contactArray)
+        val contactAdapter = ContactAdapter(contactArray)
+        recyclerView.adapter = contactAdapter
 
 //        recyclerView.adapter = ArrayAdapter(this, R.layout.list_view_template, phoneArray)
 //        recyclerView.setOnItemClickListener { parent, view, position, id ->
@@ -25,5 +26,17 @@ class MainActivity2 : AppCompatActivity(R.layout.activity_main2) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+        val changeDataButton = findViewById<Button>(R.id.changeDataButton)
+        changeDataButton.setOnClickListener {
+            contactArray[3].name = "Sarav"
+            contactArray[4].name = "Princess Consuela"
+//            notifyDataSetChanged updates everything
+//            contactAdapter.notifyDataSetChanged()
+
+//            this only updates position 3
+            contactAdapter.notifyItemChanged(3)
+        }
+
     }
 }
