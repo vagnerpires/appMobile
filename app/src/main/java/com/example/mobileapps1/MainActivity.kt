@@ -13,8 +13,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.os.bundleOf
-import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                 supportFragmentManager.commit {
                     val bundle = bundleOf("username" to "Inside fragment: $nameText")
                     setReorderingAllowed(true)
-                    add<SampleFragment>(R.id.fragment_container_view, args = bundle)
+                    replace<SampleFragment>(R.id.fragment_container_view, args = bundle)
                 }
             }
 
