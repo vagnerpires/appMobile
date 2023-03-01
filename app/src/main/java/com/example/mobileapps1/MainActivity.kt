@@ -12,11 +12,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,10 +75,16 @@ class MainActivity : AppCompatActivity() {
             override fun getItemCount() = 3
             override fun createFragment(position: Int): Fragment = SampleFragment().apply {
                 arguments = Bundle().apply {
-                    putString("username", "This is page $position")
+                    putString("username", "This is page ${position + 1}")
                 }
             }
         }
+        val exampleTabLayout = findViewById<TabLayout>(R.id.exampleTabLayout)
+        TabLayoutMediator(exampleTabLayout, exampleViewPager) { tab, position ->
+            tab.text = "Page ${position + 1}"
+            val rId = if (position == 0) R.drawable.baseline_link_24 else R.drawable.baseline_person_24
+            tab.icon = AppCompatResources.getDrawable(this, rId)
+        }.attach()
     }
 
     private fun View.hideKeyboard() {
