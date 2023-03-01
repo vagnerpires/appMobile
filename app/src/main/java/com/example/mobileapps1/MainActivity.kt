@@ -12,9 +12,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.os.bundleOf
-import androidx.fragment.app.commit
-import androidx.fragment.app.replace
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
@@ -46,14 +46,6 @@ class MainActivity : AppCompatActivity() {
             }
             sb.show()
 
-            if (savedInstanceState == null) {
-                supportFragmentManager.commit {
-                    val bundle = bundleOf("username" to "Inside fragment: $nameText")
-                    setReorderingAllowed(true)
-                    replace<SampleFragment>(R.id.fragment_container_view, args = bundle)
-                }
-            }
-
             Log.i("MainAct", "Text entered $nameText")
             if (nameText.toString() == "Hide") {
                 Log.i("MainAct", "Inside Hide if")
@@ -74,9 +66,19 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity2::class.java)
             startActivity(intent)
         }
+
+        val exampleViewPager = findViewById<ViewPager2>(R.id.exampleViewPager)
+        exampleViewPager.adapter = object: FragmentStateAdapter(this) {
+            override fun getItemCount() = 3
+            override fun createFragment(position: Int): Fragment = SampleFragment().apply {
+                arguments = Bundle().apply {
+                    putString("username", "This is page $position")
+                }
+            }
+        }
     }
 
-    fun View.hideKeyboard() {
+    private fun View.hideKeyboard() {
         val inputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(windowToken, 0)
     }
