@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity() {
             override fun createFragment(position: Int): Fragment = SampleFragment().apply {
                 arguments = Bundle().apply {
                     putString("username", "This is page ${position + 1}")
+                    putString("imageUrl", "https://cdn.pixabay.com/photo/2023/01/31/05/59/zebra-7757193_1280.jpg")
                 }
             }
         }
