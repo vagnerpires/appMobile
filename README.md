@@ -52,3 +52,4 @@
 - Add image from internet Add permission in manifest Add imageUrl argument
 - Load images from thispersondoesnotexist Add credits Refactor template name
 - [App release](https://github.com/saravanabalagi/dorset_mobileApps1/releases/tag/week5)
+- 
